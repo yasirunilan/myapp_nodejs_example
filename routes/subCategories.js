@@ -6,6 +6,7 @@ var model = require('../models/index');
 router.get('/', function(req, res, next) {
     model.SubCategory.findAll({
         attributes: ['name', 'categoryId'],
+        include: [model.Category]
     })
         .then(SubCategory => res.json({
             error: false,
